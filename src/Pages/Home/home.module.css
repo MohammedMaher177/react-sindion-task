@@ -1,0 +1,28 @@
+.hello {
+  /* position: absolute; */
+  left: 25px;
+  top: 0;
+  text-align: left;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  color: #001011;
+}
+.welcome_back {
+
+
+/* Small Text 2 */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+letter-spacing: 0.25px;
+
+color: #001011;
+
+
+}

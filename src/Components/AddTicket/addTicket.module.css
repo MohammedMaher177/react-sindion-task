@@ -1,0 +1,33 @@
+.add_ticket_btn {
+  background: #1b6792 ;
+  border-radius: 8px;
+  border: 1.5px solid #ffffff;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.75px;
+  text-transform: capitalize;
+  color: #ffffff;
+}
+
+.add_icon{
+    background-color: #95BFD7;
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 15px;
+    color: white;
+}
+.add_icon_nested{
+    background-color: #1B6792;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}

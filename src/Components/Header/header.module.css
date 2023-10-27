@@ -1,0 +1,19 @@
+.view {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: #b9bcbc;
+  position: relative;
+  z-index: 15;
+  padding-left: 25px;
+}
+
+.view::before{
+    content: "|";
+    position: absolute;
+    left: 15%;
+    z-index: 5;
+}
