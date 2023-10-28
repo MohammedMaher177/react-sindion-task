@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 
+// eslint-disable-next-line react/prop-types
 export default function TypographyComp({ title }) {
   console.log(title);
   return (
