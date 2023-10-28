@@ -10,13 +10,15 @@ import {
 import { NavLink, useLocation } from "react-router-dom";
 import styles from "./sideBar.module.css";
 export const items = [
-  { name: "Home", to: "/" },
+  { name: "Home", to: "/home" },
   { name: "Profile", to: "/profile" },
   { name: "Settings", to: "/settings" },
 ];
 
 const ListItems = () => {
   const { pathname } = useLocation();
+  const location = useLocation();
+  console.log(location);
   return (
     <Box sx={{ width: 250 }} role="presentation">
       <List>
@@ -24,7 +26,9 @@ const ListItems = () => {
           <ListItem
             key={text.name}
             disablePadding
-            className={`${pathname == text.to ? styles.active : styles.item}`}
+            className={`${
+              pathname.includes(text.to) ? styles.active : styles.item
+            }`}
           >
             <NavLink to={text.to} className="w-100 text-decoration-none">
               <ListItemButton>

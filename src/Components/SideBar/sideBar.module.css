@@ -24,6 +24,7 @@
   transition: all 0.5s;
   margin-bottom: 15px;
   transform: translateX(-18px);
+  margin-right: 10px;
 }
 .active {
   color: blue;
@@ -40,6 +41,7 @@
   margin-inline-start: 18px;
   padding: 18px;
   margin-bottom: 15px;
+  margin-right: 10px;
   transform: translateX(-18px);
   /* transform: rotate(180deg); */
 }
