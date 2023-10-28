@@ -1,12 +1,16 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import AddToPhotosIcon from "@mui/icons-material/AddToPhotos";
-import EditNoteIcon from '@mui/icons-material/EditNote';
+import EditNoteIcon from "@mui/icons-material/EditNote";
 import EditOffIcon from "@mui/icons-material/EditOff";
 import styles from "./addTicket.module.css";
-const style = {
+import { FormControl, RadioGroup } from "@mui/material";
+import Checked from "./Checked.jsx";
+import { useState } from "react";
+import ChildModal from "./ChildModal.jsx";
+
+export const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
@@ -16,57 +20,21 @@ const style = {
   boxShadow: 24,
   pt: 3,
   px: 4,
-  pb: 3,
   borderRadius: 5,
 };
 
-
-
-function ChildModal({ icon, title, titleP, text, paragraph }) {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  return (
-    <React.Fragment>
-      <Box sx={{ display: "flex" }}>
-        <span className={styles.add_icon}>
-          <span className={styles.add_icon_nested}>{icon}</span>
-        </span>
-        <div>
-          <Button onClick={handleOpen}>{title}</Button>
-          <p id="parent-modal-description">{titleP}</p>
-        </div>
-      </Box>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="child-modal-title"
-        aria-describedby="child-modal-description"
-      >
-        <Box sx={{ ...style, maxWidth: 800, minWidth: 600 }}>
-          <h2 id="child-modal-title">{text}</h2>
-          <p id="child-modal-description">{paragraph}</p>
-          <Button onClick={handleClose}>Close Child Modal</Button>
-        </Box>
-      </Modal>
-    </React.Fragment>
-  );
-}
-
 export default function NestedModal() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [checkedVal, setCheckedVal] = useState("company");
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
   };
-
+  const handleChange = (value) => {
+    setCheckedVal(value)
+  };
   return (
     <div>
       <Button
@@ -76,6 +44,10 @@ export default function NestedModal() {
           "&.MuiButton-root": {
             backgroundColor: "#1b6792",
             color: "#ffffff",
+            ":hover": {
+              backgroundColor: "#185b81",
+              color: "#FFFFFF",
+            },
           },
         }}
       >
@@ -88,7 +60,7 @@ export default function NestedModal() {
         aria-describedby="parent-modal-description"
       >
         <Box sx={{ ...style, maxWidth: 800, minWidth: 600 }}>
-          <Box sx={{ display: "flex" }}>
+          <Box sx={{ display: "flex", marginBottom: 3 }}>
             <span className={styles.add_icon}>
               <span className={styles.add_icon_nested}>
                 <AddToPhotosIcon />
@@ -101,20 +73,66 @@ export default function NestedModal() {
               </p>
             </div>
           </Box>
-          <ChildModal
-            text="Text in a child modal"
-            paragraph="Creating a new ticket to be sent between company departments"
-            title="Create Company Ticket "
-            titleP="Creating a new ticket to be sent between company departments"
-            icon={<EditNoteIcon />}
-          />
-          <ChildModal
-            text="Text in a child modal"
-            paragraph="Creating a new ticket to be sent to a department in another company "
-            title="Create Support Ticket "
-            titleP="Creating a new ticket to be sent to a department in another company "
-            icon={<EditOffIcon />}
-          />
+          <FormControl sx={{ width: "100%" }}>
+            <RadioGroup
+              onChange={({ target }) => handleChange(target.defaultValue)}
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="company"
+              name="radio-buttons-group"
+            >
+              <Checked
+                title="Create Company Ticket"
+                titleP="Creating a new ticket to be sent to a department in another company"
+                icon={<EditNoteIcon />}
+                value="company"
+                checkedVal={checkedVal}
+              />
+              <Checked
+                icon={<EditOffIcon />}
+                title="Create Support Ticket"
+                titleP="Creating a new ticket to be sent to a department in another company"
+                value="support"
+                checkedVal={checkedVal}
+              />
+
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginBottom: 2,
+                  height: "45px",
+                  gap: "20px",
+                }}
+              >
+                <Button
+                  onClick={handleClose}
+                  className={styles.continue}
+                  sx={{
+                    color: "#616363",
+                    boxShadow: "0px 1px 2px rgba(16, 24, 40, 0.05)",
+                    borderRadius: "8px",
+                    border: "1px solid #1B6792",
+                    width: "50%",
+                    fontSize: "16px",
+                    ":hover": {
+                      backgroundColor: "#1B6792",
+                      color: "#FFFFFF",
+                    },
+                  }}
+                >
+                  Cancel
+                </Button>
+                <ChildModal
+                  text="Text in a child modal"
+                  paragraph="Creating a new ticket to be sent between company departments"
+                  title="Create Company Ticket "
+                  titleP="Creating a new ticket to be sent between company departments"
+                  icon={<EditNoteIcon />}
+                  checkedVal={checkedVal}
+                />
+              </Box>
+            </RadioGroup>
+          </FormControl>
         </Box>
       </Modal>
     </div>

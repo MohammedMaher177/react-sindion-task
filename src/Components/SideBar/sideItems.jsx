@@ -18,7 +18,7 @@ export const items = [
 const ListItems = () => {
   const { pathname } = useLocation();
   return (
-    <Box sx={{ width: 250 }} role="presentation">
+    <Box sx={{ width: "100%" }} role="presentation">
       <List>
         {items.map((text) => (
           <ListItem

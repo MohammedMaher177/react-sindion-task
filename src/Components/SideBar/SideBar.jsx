@@ -4,6 +4,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import styles from "./sideBar.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSideBar } from "../../Redux/Slices/AppSlice/appSlice.js";
+const drawerWidth = 250;
 export default function SideBar() {
   const dispatch = useDispatch();
   const { sideBarCollapsed } = useSelector(({ app }) => app);
@@ -17,6 +18,16 @@ export default function SideBar() {
           <MenuIcon />
         </Button>
         <Drawer
+          sx={{
+            width: drawerWidth,
+            flexShrink: 0,
+            "& .MuiDrawer-paper": {
+              width: drawerWidth,
+              boxSizing: "border-box",
+              borderRight: "none"
+            },
+          }}
+          variant="persistent"
           anchor="left"
           open={sideBarCollapsed}
           onClose={() => toggleDrawer()}
