@@ -6,7 +6,7 @@ import Profile from "./Pages/Profile/Profile.jsx";
 import Settings from "./Pages/Settings/Settings.jsx";
 import NotFound from "./Pages/NotFound/NotFound.jsx";
 import AllTickets from "./Components/AllTickets/AllTickets.jsx";
-import Solved from "./Components/Solved/Solved.jsx";
+import Solved from "./Pages/Solved/Solved.jsx";
 import Pending from "./Components/Pending/Pending.jsx";
 
 const routes = createBrowserRouter([

@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  FormControl,
   InputLabel,
   MenuItem,
   Select,
@@ -11,17 +10,12 @@ import EditNoteIcon from "@mui/icons-material/EditNote";
 import { Formik, useFormik } from "formik";
 import * as yup from "yup";
 import styles from "../AddTicket/addTicket.module.css";
+import ImageUpload from "../ImageUpload/ImageUpload.jsx";
 import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 export default function AddTicketModal({ handleClose }) {
-  const [formData, setFormData] = useState({
-    Subject: "",
-    from: "",
-    to: "",
-    Description: "",
-  });
-
+  const [formData, setFormData] = useState({});
   const validationSchema = yup.object({
     Subject: yup.string("Enter your Subject").required("Subject is required"),
     Description: yup
@@ -38,22 +32,10 @@ export default function AddTicketModal({ handleClose }) {
     },
     onSubmit: handleSubmit,
   });
-
-  const handleChange = ({ target }) => {
-    const { defaultValue, name } = target;
-    console.log(defaultValue);
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: defaultValue,
-    }));
-    console.log(formData);
-    formik.setValues(formData);
-  };
-
   function handleSubmit(values) {
     console.log(values);
   }
-  
+
   return (
     <>
       <Box>
@@ -68,12 +50,12 @@ export default function AddTicketModal({ handleClose }) {
             <p>Creating a new ticket to be sent between company departments</p>
           </span>
         </Box>
-        <FormControl fullWidth>
+        <form onSubmit={formik.handleSubmit}>
           <Formik
             validationSchema={validationSchema}
             onSubmit={formik.handleSubmit}
           >
-            {({ isSubmitting, getFieldProps, handleBlur, values }) => (
+            {({ isSubmitting }) => (
               <>
                 <TextField
                   fullWidth
@@ -118,13 +100,18 @@ export default function AddTicketModal({ handleClose }) {
                   <Box sx={{ width: "50%", position: "relative" }}>
                     <InputLabel id="from">From</InputLabel>
                     <Select
+                      placeholder="Select Department"
                       labelId="from"
                       id="from"
                       label="from"
-                      value={"New York"}
+                      name="from"
                       onChange={formik.handleChange}
                       fullWidth
+                      defaultValue="none"
                     >
+                      <MenuItem value="none" disabled>
+                        Select Department
+                      </MenuItem>
                       <MenuItem value="NY">New York</MenuItem>
                       <MenuItem value="SF">San Francisco</MenuItem>
                       <MenuItem value="CH">Chicago</MenuItem>
@@ -137,16 +124,23 @@ export default function AddTicketModal({ handleClose }) {
                       labelId="to"
                       id="to"
                       label="to"
-                      value={"San Francisco"}
+                      name="to"
                       onChange={formik.handleChange}
                       fullWidth
+                      defaultValue="none"
                     >
+                      <MenuItem value="none" disabled>
+                        Select Department
+                      </MenuItem>
                       <MenuItem value="NY">New York</MenuItem>
                       <MenuItem value="SF">San Francisco</MenuItem>
                       <MenuItem value="CH">Chicago</MenuItem>
                       <MenuItem value="OTHER">Other</MenuItem>
                     </Select>
                   </Box>
+                </Box>
+                <Box sx={{ width: "100%" }}>
+                  <ImageUpload setFormData={setFormData} />
                 </Box>
                 <Box
                   sx={{
@@ -200,7 +194,7 @@ export default function AddTicketModal({ handleClose }) {
               </>
             )}
           </Formik>
-        </FormControl>
+        </form>
       </Box>
     </>
   );

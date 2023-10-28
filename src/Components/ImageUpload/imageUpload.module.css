@@ -1,0 +1,26 @@
+.uploadImage {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #1b6792;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.uploadImageBtn {
+  border: 2px dashed #ced6dd;
+  border-radius: 8px;
+  width: 100%;
+  padding: 15px;
+  position: relative;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: black;
+  color: #475467;
+  margin-bottom: 14px;
+}
