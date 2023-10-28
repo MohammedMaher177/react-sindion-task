@@ -20,7 +20,7 @@ const ListItems = () => {
   const location = useLocation();
   console.log(location);
   return (
-    <Box sx={{ width: 250 }} role="presentation">
+    <Box sx={{ width: "100%" }} role="presentation">
       <List>
         {items.map((text) => (
           <ListItem

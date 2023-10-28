@@ -1,6 +1,5 @@
 import { FormControl, NativeSelect } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import styles from "./Days.module.css";
 export default function Days() {
   return (
     <div>

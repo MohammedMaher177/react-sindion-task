@@ -124,7 +124,7 @@ export default function PrimarySearchAppBar() {
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            sx={{ mr: 2 }}
+            sx={{ mr: 2, maxWidth:"45px", maxHeight:"45px" }}
           >
             <SideBar />
           </IconButton>
