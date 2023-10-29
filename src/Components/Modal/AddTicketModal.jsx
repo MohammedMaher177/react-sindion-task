@@ -15,6 +15,7 @@ import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 export default function AddTicketModal({ handleClose }) {
+  // eslint-disable-next-line no-unused-vars
   const [formData, setFormData] = useState({});
   const validationSchema = yup.object({
     Subject: yup.string("Enter your Subject").required("Subject is required"),

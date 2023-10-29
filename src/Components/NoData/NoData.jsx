@@ -2,7 +2,7 @@ import AddTicket from '../AddTicket/AddTicket.jsx';
 import styles from './noData.module.css'
 export default function NoData() {
   return (
-    <div className="text-center">
+    <div className="text-center my-5">
       <svg
         width="324"
         height="216"

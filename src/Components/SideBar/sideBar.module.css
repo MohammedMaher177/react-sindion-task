@@ -28,45 +28,46 @@
 }
 .active {
   color: blue;
-  background-color: white;
-  border-radius: 61px 0 0 61px;
-  position: relative;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  margin-inline-start: 18px;
-  padding: 18px;
-  margin-bottom: 15px;
-  margin-right: 10px;
-  transform: translateX(-18px);
-  /* transform: rotate(180deg); */
+    background-color: white;
+    border-radius: 61px 0 0 61px;
+    position: relative;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    margin-inline-start: 18px;
+    padding: 18px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    transform: translateX(-18px);
+    /* transform: rotate(180deg); */
+    margin-left: 73px;
 }
 
 .active::before {
   content: "";
-  position: absolute;
-  width: 61px;
-  height: 61px;
-  border-radius: 50%;
-  background-color: transparent;
-  top: -61px;
-  right: 0;
-  box-shadow: 35px 35px 0 10px white;
-  pointer-events: none;
+    position: absolute;
+    width: 61px;
+    height: 61px;
+    border-bottom-right-radius: 50%;
+    background-color: transparent;
+    top: -61px;
+    right: -28px;
+    box-shadow: 35px 35px 0 10px white;
+    pointer-events: none;
 }
 .active::after {
   content: "";
-  position: absolute;
-  width: 61px;
-  height: 61px;
-  border-radius: 50%;
-  background-color: transparent;
-  bottom: -61px;
-  right: 0;
-  box-shadow: 35px -35px 0 10px white;
-  pointer-events: none;
+    position: absolute;
+    width: 61px;
+    height: 61px;
+    border-top-right-radius: 50%;
+    background-color: transparent;
+    bottom: -61px;
+    right: -28px;
+    box-shadow: 35px -35px 0 10px white;
+    pointer-events: none;
 }

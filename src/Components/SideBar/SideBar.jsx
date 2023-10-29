@@ -1,22 +1,21 @@
-import { Button, Drawer } from "@mui/material";
+import { Drawer } from "@mui/material";
 import ListItems from "./sideItems.jsx";
-import MenuIcon from "@mui/icons-material/Menu";
 import styles from "./sideBar.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSideBar } from "../../Redux/Slices/AppSlice/appSlice.js";
 const drawerWidth = 250;
 export default function SideBar() {
-  const dispatch = useDispatch();
   const { sideBarCollapsed } = useSelector(({ app }) => app);
+  const dispatch = useDispatch();
   const toggleDrawer = () => {
     dispatch(toggleSideBar());
   };
   return (
     <>
       <div>
-        <Button onClick={() => toggleDrawer(true)} className={styles.openBtn}>
+        {/* <Button onClick={() => toggleDrawer(true)} className={styles.openBtn}>
           <MenuIcon />
-        </Button>
+        </Button> */}
         <Drawer
           sx={{
             width: drawerWidth,
@@ -24,8 +23,9 @@ export default function SideBar() {
             "& .MuiDrawer-paper": {
               width: drawerWidth,
               boxSizing: "border-box",
-              borderRight: "none"
+              borderRight: "none",
             },
+            textAlign: "center",
           }}
           variant="persistent"
           anchor="left"

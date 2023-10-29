@@ -11,7 +11,6 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { useState } from "react";
-import SideBar from "../SideBar/SideBar.jsx";
 import { useSelector } from "react-redux";
 
 export default function PrimarySearchAppBar() {
@@ -113,7 +112,7 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1, marginLeft: "auto", width: navWidth }}>
+    <Box sx={{ flexGrow: 1, marginLeft: "auto", width: navWidth , position:"static"}}>
       <AppBar
         position="static"
         sx={{ backgroundColor: "white", color: "black" }}
@@ -126,7 +125,7 @@ export default function PrimarySearchAppBar() {
             aria-label="open drawer"
             sx={{ mr: 2, maxWidth:"45px", maxHeight:"45px" }}
           >
-            <SideBar />
+            {/* <SideBar /> */}
           </IconButton>
           <Typography
             variant="h6"

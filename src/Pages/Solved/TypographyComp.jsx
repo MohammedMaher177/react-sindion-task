@@ -2,7 +2,6 @@ import { Typography } from "@mui/material";
 
 // eslint-disable-next-line react/prop-types
 export default function TypographyComp({ title }) {
-  console.log(title);
   return (
     <>
       {Object.keys(title).forEach((el) => {
@@ -16,8 +15,10 @@ export default function TypographyComp({ title }) {
               letterSpacing: "0.25px",
               color: "#616363",
             }}
+            
           >
             {el.valueOf()}
+            moh
           </Typography>
         );
       })}
