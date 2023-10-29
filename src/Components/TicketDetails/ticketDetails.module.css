@@ -15,3 +15,8 @@
   z-index: 7;
 }
 
+.back_icon {
+  /* Light Gray */
+  background: #f7f6f6;
+  border-radius: 4px;
+}
