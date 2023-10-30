@@ -8,18 +8,20 @@ import {
 import { useEffect } from "react";
 import TicketStatus from "../../Components/TicketStatus/TicketStatus.jsx";
 import { Box, Button, ListItemButton, ListItemText } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
 export default function TicketDetails() {
   const { status } = useParams();
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const toggleDrawer = () => {
     dispatch(closeSideBar());
   };
   const openS = () => {
     dispatch(openSideBar());
   };
-
+  const backToHome = () => {
+    navigate(-1);
+  };
   useEffect(() => {
     toggleDrawer();
     return openS;
@@ -28,15 +30,13 @@ export default function TicketDetails() {
     <>
       <div className="container-fluid pt-4">
         <Box sx={{ display: "flex" }}>
-          <Button sx={{
-            backgroundColor:"#F7F6F6"
-          }}>
-            <svg
-              width="7"
-              height="12"
-              viewBox="0 0 7 12"
-              fill="none"
-            >
+          <Button
+            sx={{
+              backgroundColor: "#F7F6F6",
+            }}
+            onClick={backToHome}
+          >
+            <svg width="7" height="12" viewBox="0 0 7 12" fill="none">
               <path
                 d="M6 1C6 1 1 4.44569 1 6.00144C1 7.55719 6 11 6 11"
                 stroke="#B9BCBC"
