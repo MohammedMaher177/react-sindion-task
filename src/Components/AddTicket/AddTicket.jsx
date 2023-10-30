@@ -33,7 +33,7 @@ export default function NestedModal() {
     setOpen(false);
   };
   const handleChange = (value) => {
-    setCheckedVal(value)
+    setCheckedVal(value);
   };
   return (
     <div>
@@ -122,14 +122,7 @@ export default function NestedModal() {
                 >
                   Cancel
                 </Button>
-                <ChildModal
-                  text="Text in a child modal"
-                  paragraph="Creating a new ticket to be sent between company departments"
-                  title="Create Company Ticket "
-                  titleP="Creating a new ticket to be sent between company departments"
-                  icon={<EditNoteIcon />}
-                  checkedVal={checkedVal}
-                />
+                <ChildModal checkedVal={checkedVal} handleCloseParent={handleClose}/>
               </Box>
             </RadioGroup>
           </FormControl>

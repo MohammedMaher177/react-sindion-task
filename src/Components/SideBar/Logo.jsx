@@ -5,7 +5,6 @@ export default function Logo() {
       height="78"
       viewBox="0 0 24 48"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath="url(#clip0_1281_76)">
         <path

@@ -38,7 +38,6 @@ export default function TicketDetailsBody() {
             color: "#001011",
             display: "flex",
             gap: 1,
-            // fontStyle:"normal"
           }}
         />
     </>

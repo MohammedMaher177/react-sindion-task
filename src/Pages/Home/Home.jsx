@@ -1,15 +1,3 @@
-// import HomeLayout from "../../Components/HomeLayout/HomeLayout.jsx";
-
-// export default function Home() {
-//   return (
-//     <>
-//       <div className="container">
-//         <HomeLayout />
-//       </div>
-//     </>
-//   );
-// }
-
 import { Outlet } from "react-router-dom";
 import Days from "../../Components/Days/Days.jsx";
 import HomeMenu from "../../Components/HomeMenu/HomeMenu.jsx";
@@ -23,25 +11,9 @@ import NoData from "../../Components/NoData/NoData.jsx";
 import CustomizedTables from "../../Components/Table/Table.jsx";
 import { useEffect } from "react";
 import { openSideBar } from "../../Redux/Slices/AppSlice/appSlice.js";
+import { Main } from "../../Theme/ThemeProvider.js";
 
-const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
-  ({ theme, open }) => ({
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: `-150px`,
-    ...(open && {
-      transition: theme.transitions.create("margin", {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: "50px",
-    }),
-  })
-);
+
 
 export default function Home() {
   const dispatch = useDispatch();

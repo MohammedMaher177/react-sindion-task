@@ -5,18 +5,20 @@ import styles from "./addTicket.module.css";
 import AddTicketModal from "../Modal/AddTicketModal.jsx";
 
 // eslint-disable-next-line react/prop-types
-export default function ChildModal() {
+export default function ChildModal({checkedVal, handleCloseParent}) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
+    handleCloseParent()
     setOpen(false);
   };
   return (
     <>
       <Box sx={{ display: "flex", width: "100%" }}>
         <Button
+         disabled={checkedVal !== "company"}
           onClick={handleOpen}
           className={styles.continue}
           sx={{

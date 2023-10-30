@@ -12,6 +12,7 @@ import * as yup from "yup";
 import styles from "../AddTicket/addTicket.module.css";
 import ImageUpload from "../ImageUpload/ImageUpload.jsx";
 import { useState } from "react";
+import { Textarea } from "../../Theme/ThemeProvider.js";
 
 // eslint-disable-next-line react/prop-types
 export default function AddTicketModal({ handleClose }) {
@@ -58,7 +59,12 @@ export default function AddTicketModal({ handleClose }) {
           >
             {({ isSubmitting }) => (
               <>
+                <label className="mb-2" htmlFor="Subject">
+                  Subject*
+                </label>
                 <TextField
+                  required
+                  placeholder="What is your Subject?"
                   fullWidth
                   id="Subject"
                   name="Subject"
@@ -70,23 +76,6 @@ export default function AddTicketModal({ handleClose }) {
                     formik.touched.Subject && Boolean(formik.errors.Subject)
                   }
                   helperText={formik.touched.Subject && formik.errors.Subject}
-                  sx={{ marginBottom: 2 }}
-                />
-                <TextField
-                  fullWidth
-                  id="Description"
-                  name="Description"
-                  label="Description"
-                  value={formik.values.Description}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  error={
-                    formik.touched.Description &&
-                    Boolean(formik.errors.Description)
-                  }
-                  helperText={
-                    formik.touched.Description && formik.errors.Description
-                  }
                   sx={{ marginBottom: 2 }}
                 />
                 <Box
@@ -101,6 +90,7 @@ export default function AddTicketModal({ handleClose }) {
                   <Box sx={{ width: "50%", position: "relative" }}>
                     <InputLabel id="from">From</InputLabel>
                     <Select
+                      required
                       placeholder="Select Department"
                       labelId="from"
                       id="from"
@@ -122,6 +112,7 @@ export default function AddTicketModal({ handleClose }) {
                   <Box sx={{ width: "50%", position: "relative" }}>
                     <InputLabel id="to">To</InputLabel>
                     <Select
+                      required
                       labelId="to"
                       id="to"
                       label="to"
@@ -140,6 +131,30 @@ export default function AddTicketModal({ handleClose }) {
                     </Select>
                   </Box>
                 </Box>
+                <babel className="mb-2" htmlFor="Description">
+                  Description*
+                </babel>
+                <Textarea
+                  required
+                  fullWidth
+                  id="Description"
+                  name="Description"
+                  label="Description"
+                  value={formik.values.Description}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={
+                    formik.touched.Description &&
+                    Boolean(formik.errors.Description)
+                  }
+                  helperText={
+                    formik.touched.Description && formik.errors.Description
+                  }
+                  aria-label="minimum height"
+                  minRows={4}
+                  sx={{ width: "100%", marginBottom: 2 }}
+                  placeholder={`e.g. I joined Stripe’s Customer Success team to help them scale their checkout product. I focused mainly on onboarding new customers and resolving complaints.`}
+                />
                 <Box sx={{ width: "100%" }}>
                   <ImageUpload setFormData={setFormData} />
                 </Box>

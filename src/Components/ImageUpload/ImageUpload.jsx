@@ -1,43 +1,33 @@
-// import { Button } from "@mui/base";
+import PropTypes from "prop-types";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import styles from "./imageUpload.module.css";
 import { useState } from "react";
-// import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import { VisuallyHiddenInput } from "../../Theme/ThemeProvider.js";
+import { Box } from "@mui/material";
+import Loading from "../Loading/Loading.jsx";
+import DeleteIcon from "../Icons/DeleteIcon.jsx";
 export default function ImageUpload({ setFormData }) {
-  const [file, setFile] = useState([]);
-  const [imageUrl, setImageUrl] = useState();
+  const [image, setImage] = useState([]);
+  const [imagePreview, setImagePreview] = useState([]);
+  const [isLoading, setloading] = useState(false);
 
-  const getBase64 = (img, callback) => {
-    const reader = new FileReader();
-    reader.addEventListener("load", () => callback(reader.result));
-    reader.readAsDataURL(img);
-  };
+  function validationImage(e) {
+    setloading(true);
+    const imageFile = e.target.files[0];
 
-  const handleChange = (e) => {
-    console.log(e.target.value);
-    // setFile(target.files);
-    // getBase64(target.files[1].originFileObj, (url) => {
-    //   // setLoading(false);
-    // });
-    setImageUrl(e.target.value);
-    console.log(imageUrl);
-  };
-  const VisuallyHiddenInput = styled("input")({
-    clip: "rect(0 0 0 0)",
-    clipPath: "inset(50%)",
-    height: 1,
-    overflow: "hidden",
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    whiteSpace: "nowrap",
-    width: 1,
-  });
+    setFormData(image);
+    setImage((prevFormData) => [...prevFormData, imageFile]);
+    setImagePreview((prevFormData) => [
+      ...prevFormData,
+      URL.createObjectURL(imageFile),
+    ]);
+    setloading(false);
+  }
 
   return (
     <>
+    {imagePreview.length < 2 &&<><label htmlFor="attach-file" className="mb-2">Attach Photo </label>
       <Button
         sx={{
           color: "#475467",
@@ -48,20 +38,35 @@ export default function ImageUpload({ setFormData }) {
           padding: 2,
         }}
         component="label"
-        // variant="contained"
+        variant="outlined"
         className={styles.uploadImageBtn}
-        onChange={handleChange}
+        onChange={validationImage}
         name="images"
       >
         <input type="file" hidden />
-        {/* {file.map((el, i) => (
-          <img src={el} alt="" key={i} />
-        ))} */}
         <CloudUploadIcon sx={{ marginRight: 1 }} />
         <span className={styles.uploadImage}> Click to upload photo </span>
         &nbsp; or drag and drop
-        <VisuallyHiddenInput type="image" onChange={handleChange} />
-      </Button>
+        <VisuallyHiddenInput type="image" accept="image/*" id="attach-file" />
+      </Button></> }
+      
+      <Box sx={{ display: "flex", alignItems: "center", gap:1 }}>
+        {isLoading && <Loading />}
+        {imagePreview.length > 0 &&
+          imagePreview.map((im, i) => (
+            <>
+              <Box sx={{ position: "relative", width: "50%" }}>
+                <Button sx={{ position: "absolute", top: "45%", left: "45%" }}>
+                  <DeleteIcon />
+                </Button>
+                <img src={im} alt="" className="w-100" key={i} />
+              </Box>
+            </>
+          ))}
+      </Box>
     </>
   );
 }
+ImageUpload.propTypes = {
+  setFormData: PropTypes.func,
+};
