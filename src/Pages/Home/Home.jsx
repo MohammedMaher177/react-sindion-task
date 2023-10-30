@@ -45,12 +45,13 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
 
 export default function Home() {
   const dispatch = useDispatch();
+  // eslint-disable-next-line no-unused-vars
   const openS = () => {
     dispatch(openSideBar());
   };
   const { sideBarCollapsed } = useSelector(({ app }) => app);
   useEffect(() => {
-    openS();
+    // openS();
   }, []);
   return (
     <>

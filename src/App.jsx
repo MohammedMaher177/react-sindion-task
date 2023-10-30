@@ -4,7 +4,7 @@ import Home from "./Pages/Home/Home.jsx";
 import Profile from "./Pages/Profile/Profile.jsx";
 import Settings from "./Pages/Settings/Settings.jsx";
 import NotFound from "./Pages/NotFound/NotFound.jsx";
-import TicketDetails from "./Components/TicketDetails/TicketDetails.jsx";
+import TicketDetails from "./Pages/TicketDetails/TicketDetails.jsx";
 
 const routes = createBrowserRouter([
   {

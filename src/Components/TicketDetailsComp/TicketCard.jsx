@@ -8,10 +8,11 @@ import {
   Typography,
 } from "@mui/material";
 import LensIcon from "@mui/icons-material/Lens";
+import PropTypes from "prop-types";
 
 import styles from "./ticketDetails.module.css";
 
-export default function TicketCard() {
+export default function TicketCard({user_name}) {
   const shapeStyles = { bgcolor: "#e6ee9c", width: 80, height: 40 };
   const shapeCircleStyles = { borderRadius: "8px" };
 
@@ -30,7 +31,7 @@ export default function TicketCard() {
       >
         <Box sx={{ display: "flex", flexDirection: "column", flexGrow: 2 }}>
           <ListItemText
-            primary="User Name"
+            primary={user_name}
             secondary={
               <Badge
                 sx={{
@@ -88,3 +89,7 @@ export default function TicketCard() {
     </>
   );
 }
+
+TicketCard.propTypes = {
+  user_name: PropTypes.string.isRequired,
+};
