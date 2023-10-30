@@ -64,7 +64,7 @@ export default function ImageUpload({ setFormData }) {
 
       <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
         {isLoading && <Loading />}
-        {image.length &&
+        {image.length > 0 &&
           image.map((im, i) => (
             <>
               <Box

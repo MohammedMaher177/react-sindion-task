@@ -38,7 +38,7 @@ export const resources = [
 export const titles = [
   {
     id:1,
-    company: "Company Name",
+    company: "Sindion",
     from: "Graphic Designer",
     to: "front-End Developer",
     type: "Internal  ",
@@ -49,7 +49,7 @@ export const titles = [
   },
   {
     id:2,
-    company: "Company Name",
+    company: "Company 2",
     from: "front-End Developer",
     to: "Graphic Designer",
     type: "External   ",
@@ -59,7 +59,7 @@ export const titles = [
     bg: "#dae4dc",
   },
   {id:3,
-    company: "Company Name",
+    company: "Company 2",
     from: "Graphic Designer",
     to: "front-End Developer",
     type: "Internal  ",
@@ -70,7 +70,7 @@ export const titles = [
   },
   {
     id:4,
-    company: "Company Name",
+    company: "Company 4",
     from: "front-End Developer",
     to: "Graphic Designer",
     type: "External   ",
@@ -81,7 +81,7 @@ export const titles = [
   },
   {
     id:5,
-    company: "Company Name",
+    company: "Company 5",
     from: "Graphic Designer",
     to: "front-End Developer",
     type: "Internal  ",
@@ -92,7 +92,7 @@ export const titles = [
   },
   {
     id:6,
-    company: "Company Name",
+    company: "Company 6",
     from: "front-End Developer",
     to: "Graphic Designer",
     type: "External   ",

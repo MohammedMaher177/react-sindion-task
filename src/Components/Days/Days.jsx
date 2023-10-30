@@ -1,6 +1,14 @@
 import { FormControl, NativeSelect } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import dayjs from "dayjs";
+import { useState } from "react";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+
 export default function Days() {
+const [value, setValue] = useState(dayjs("10/30/2023"));
+  
   return (
     <div>
       <FormControl
@@ -24,17 +32,25 @@ export default function Days() {
           <option value="yesterday">yesterday</option>
         </NativeSelect>
       </FormControl>
-      {/* <div className=" position-relative">
-        <div className={styles.solved}></div>
-        <div className={styles.over}>
-          <div className={styles.solved_text}>
-            <div>Solved</div>
-            <div className={styles.solved_text_0}>0</div>
-            <div className={styles.solved_text_out}>Out of 0</div>
-          </div>
-        </div>
-        <div className={styles.text}></div>
-      </div> */}
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DemoContainer
+          components={["DatePicker", "DatePicker"]}
+          sx={{
+            m: 1,
+            minWidth: "180px",
+            maxWidth: "200px",
+            display: "flex",
+            marginBottom: 10,
+          }}
+        >
+          <DatePicker
+            label="Uncontrolled picker"
+            value={value}
+            defaultValue={dayjs("10/30/2023")}
+            onChange={(newValue) => setValue(newValue)}
+          />
+        </DemoContainer>
+      </LocalizationProvider>
     </div>
   );
 }

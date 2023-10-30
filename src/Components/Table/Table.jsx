@@ -42,7 +42,7 @@ export default function CustomizedTables() {
                   align="left"
                   sx={{ whiteSpace: "nowrap" }}
                 >
-                  <UserIcon name="Company Name	" />
+                  <UserIcon name={row.company} />
                 </StyledTableCell>
                 <StyledTableCell align="left" sx={{ whiteSpace: "nowrap" }}>
                   {row.from}

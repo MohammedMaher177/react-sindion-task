@@ -41,6 +41,7 @@ export default function NestedModal() {
         onClick={handleOpen}
         className={styles.add_ticket_btn}
         sx={{
+          whiteSpace: "nowrap",
           "&.MuiButton-root": {
             backgroundColor: "#1b6792",
             color: "#ffffff",
@@ -122,7 +123,10 @@ export default function NestedModal() {
                 >
                   Cancel
                 </Button>
-                <ChildModal checkedVal={checkedVal} handleCloseParent={handleClose}/>
+                <ChildModal
+                  checkedVal={checkedVal}
+                  handleCloseParent={handleClose}
+                />
               </Box>
             </RadioGroup>
           </FormControl>
