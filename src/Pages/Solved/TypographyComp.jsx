@@ -5,7 +5,6 @@ export default function TypographyComp({ title }) {
   return (
     <>
       {Object.keys(title).forEach((el) => {
-        console.log(el.valueOf());
         return (
           <Typography
             sx={{

@@ -10,8 +10,7 @@ import TicketDetailsHeader from "./TicketDetailsHeader.jsx";
 import TicketDetailsBody from "./TicketDetailsBody.jsx";
 import { Divider } from "@mui/material";
 
-export default function TicketDetailsComp({ status, user_name }) {
-  console.log(status);
+export default function TicketDetailsComp({ user_name }) {
   const dispatch = useDispatch();
 
   const toggleDrawer = () => {

@@ -22,10 +22,8 @@ export default function ImageUpload({ setFormData }) {
   };
 
   const removeItem = (i) => {
-    console.log(i);
-    console.log(image);
+
     setImage([...image.splice(i, 1)]);
-    console.log(image);
   };
   return (
     <>
