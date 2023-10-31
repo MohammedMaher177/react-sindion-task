@@ -33,6 +33,7 @@ export default function TicketDetails() {
     getTickets();
     toggleDrawer();
     return openS;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
