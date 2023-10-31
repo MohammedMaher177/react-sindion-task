@@ -21,10 +21,6 @@ export default function ImageUpload({ setFormData }) {
     setloading(false);
   };
 
-  const removeItem = (i) => {
-
-    setImage([...image.splice(i, 1)]);
-  };
   return (
     <>
       {image.length < 2 && (
@@ -60,7 +56,9 @@ export default function ImageUpload({ setFormData }) {
         </>
       )}
 
-      <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+      <Box
+        sx={{ display: "flex", alignItems: "center", gap: 1, marginBottom: 2 }}
+      >
         {isLoading && <Loading />}
         {image.length > 0 &&
           image.map((im, i) => (
@@ -90,7 +88,7 @@ export default function ImageUpload({ setFormData }) {
                   <br />
                   {Math.floor(image[i]?.size / 1000)}KB
                 </Typography>
-                <Button onClick={() => removeItem(i)}>
+                <Button>
                   <DeleteIcon fill="#475467" />
                 </Button>
               </Box>

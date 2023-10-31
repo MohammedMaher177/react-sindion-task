@@ -10,8 +10,6 @@ import {
 import LensIcon from "@mui/icons-material/Lens";
 import PropTypes from "prop-types";
 
-import styles from "./ticketDetails.module.css";
-
 export default function TicketCard({user_name}) {
   const shapeStyles = { bgcolor: "#e6ee9c", width: 80, height: 40 };
   const shapeCircleStyles = { borderRadius: "8px" };
@@ -55,7 +53,7 @@ export default function TicketCard({user_name}) {
           <ListSubheader
             component="div"
             id="nested-list-subheader"
-            className={styles.sub_header}
+            // className={styles.sub_header}
           >
             27 Jon 2023
             <LensIcon

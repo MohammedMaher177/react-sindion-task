@@ -6,7 +6,7 @@ import Header from "../../Components/Header/Header.jsx";
 import Pie from "../../Components/Pie/Pie.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/material";
-import NoData from "../../Components/NoData/NoData.jsx";
+// import NoData from "../../Components/NoData/NoData.jsx";
 import CustomizedTables from "../../Components/Table/Table.jsx";
 import { useEffect } from "react";
 import { openSideBar } from "../../Redux/Slices/AppSlice/appSlice.js";
@@ -20,8 +20,6 @@ export default function Home() {
     dispatch(openSideBar());
   };
   const { sideBarCollapsed } = useSelector(({ app }) => app);
-  const { tickets } = useSelector(({ ticket }) => ticket);
-  console.log("tickets:", tickets);
   const getAllTickets = () => {
     dispatch(getTickets());
   };
@@ -34,13 +32,16 @@ export default function Home() {
     <>
       <Main open={sideBarCollapsed}>
         <div className="container mx-2">
-          <div className="row my-2 d-flex flex-nowrap">
-            <Box sx={{ minWidth: "350px", maxWidth: "450px" }}>
+          <div className="row my-2 d-flex">
+            <Box
+              sx={{ minWidth: "350px", maxWidth: "450px" }}
+              className="col-lg-4"
+            >
               <Days />
               <Pie />
               <HomeMenu />
             </Box>
-            <div className="col-md-8">
+            <div className="col-md-12 col-lg-8">
               <Header />
               {/* <NoData /> */}
               <CustomizedTables />

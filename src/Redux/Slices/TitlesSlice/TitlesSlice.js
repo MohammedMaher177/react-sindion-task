@@ -30,12 +30,10 @@ const titlesSlice = createSlice({
         state.loading = true;
       })
       .addCase(getTitles.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.loading = false;
         state.titles = payload;
       })
       .addCase(getTitles.rejected, (state, { payload }) => {
-        console.log(payload);
         state.loading = false;
         state.error["titles/getTitles"] = payload;
       });

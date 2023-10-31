@@ -1,15 +1,12 @@
-.p{
-/* Rectangle 12443 */
+.link {
+  text-decoration: none;
 
-position: absolute;
-width: 24px;
-height: 24px;
-left: 8px;
-top: 84px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
 
-/* Light Gray */
-background: #F7F6F6;
-border-radius: 4px;
-
-
+  color: #616363;
 }

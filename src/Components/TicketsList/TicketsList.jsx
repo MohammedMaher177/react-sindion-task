@@ -22,14 +22,22 @@ export default function TicketsList({ status }) {
     setOpen(!open);
   };
   return (
-    <Box component="div">
+    <Box
+      component="div"
+      sx={{
+        display: "flex",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+      }}
+    >
       <List
         sx={{
-          width: "100%",
+          // width: "100%",
           maxWidth: "100%",
           bgcolor: "background.paper",
           display: "flex",
           flexWrap: "wrap",
+          flexDirection: "column",
         }}
         component="nav"
         aria-labelledby="all-tickets"
@@ -48,6 +56,7 @@ export default function TicketsList({ status }) {
             primary={status}
             sx={{
               textTransform: "capitalize",
+              width: "100%",
             }}
           />
           {open ? <ExpandLess /> : <ExpandMore />}
@@ -57,14 +66,14 @@ export default function TicketsList({ status }) {
             <TicketTabs value={value} setValue={setValue} />
           </List>
         </Collapse>
-        <Box sx={{ width: "60%", marginLeft: open ? "" : "40%" }}>
-          {tickets.map((ticket) => (
-            <TabPanel value={value} index={ticket.index} key={ticket.index}>
-              {ticket.children}
-            </TabPanel>
-          ))}
-        </Box>
       </List>
+      <Box sx={{ width: "60%", marginLeft: open ? "" : "" }}>
+        {tickets.map((ticket) => (
+          <TabPanel value={value} index={ticket.index} key={ticket.index}>
+            {ticket.children}
+          </TabPanel>
+        ))}
+      </Box>
     </Box>
   );
 }

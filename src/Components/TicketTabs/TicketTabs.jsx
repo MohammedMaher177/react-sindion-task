@@ -1,9 +1,6 @@
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-// import TabPanel from "../TabPanel/TabPanel.jsx";
-// import { useState } from "react";
-// import { useSelector } from "react-redux";
 import { tickets } from "../../Data/DummyData.jsx";
 import PropTypes from "prop-types";
 
@@ -23,7 +20,6 @@ export default function TicketTabs({value, setValue}) {
 
   const backgroundColor = (index) =>
     value == index ? "rgba(27 103 146 / 20%)" : "";
-  // const { tickets } = useSelector(({ ticket }) => ticket);
   return (
     <>
       <Box
