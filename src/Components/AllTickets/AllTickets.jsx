@@ -3,9 +3,8 @@ import NoData from "../NoData/NoData.jsx";
 import { useEffect } from "react";
 
 export default function AllTickets() {
-  const dispatch = useDispatch();
   const { tickets } = useSelector(({ ticket }) => ticket);
-  console.log("tickets:", tickets);
+  const dispatch = useDispatch();
   const getTickets = () => {
     dispatch(getTickets());
   };

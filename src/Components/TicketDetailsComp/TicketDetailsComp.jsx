@@ -36,6 +36,6 @@ export default function TicketDetailsComp({ user_name }) {
 }
 
 TicketDetailsComp.propTypes = {
-  status: PropTypes.number.isRequired,
-  user_name: PropTypes.number.isRequired,
+  status: PropTypes.string,
+  user_name: PropTypes.string.isRequired,
 };

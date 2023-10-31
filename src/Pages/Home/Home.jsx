@@ -42,7 +42,7 @@ export default function Home() {
             </Box>
             <div className="col-md-8">
               <Header />
-              <NoData />
+              {/* <NoData /> */}
               <CustomizedTables />
               <Outlet></Outlet>
             </div>

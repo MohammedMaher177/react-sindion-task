@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { titles } from "../../../Data/DummyData.jsx";
+// import { titles } from "../../../Data/DummyData.jsx";
 import axiosInstance from "../../../API/axiosInstance.js";
 import { apiEndpoints } from "../../../API/apiEndpoints.js";
-const initialState = { tickets: [], titles, loading: false };
+const initialState = { tickets: [], loading: false , error: {}};
 
 export const getTickets = createAsyncThunk(
   "tickets/getTickets",
@@ -33,7 +33,7 @@ const ticketsSlice = createSlice({
       .addCase(getTickets.rejected, (state, { payload }) => {
         console.log(payload);
         state.loading = false;
-        state.tickets = payload;
+        state.error["tickets/getTickets"] = payload;
       });
   },
 });

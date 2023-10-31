@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import TicketsList from "../../Components/TicketsList/TicketsList.jsx";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   closeSideBar,
   openSideBar,
@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import TicketStatus from "../../Components/TicketStatus/TicketStatus.jsx";
 import { Box, Button, ListItemButton, ListItemText } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { getSpecTitles } from "../../Redux/Slices/TitlesSlice/TitlesSlice.js";
 export default function TicketDetails() {
   const { status } = useParams();
   const dispatch = useDispatch();
@@ -22,7 +23,14 @@ export default function TicketDetails() {
   const backToHome = () => {
     navigate(-1);
   };
+  const statusData = useSelector(({title}) => title[status]);
+  console.log(statusData);
+  const getTickets = () => {
+    dispatch(getSpecTitles(status));
+  };
+
   useEffect(() => {
+    getTickets();
     toggleDrawer();
     return openS;
   }, []);

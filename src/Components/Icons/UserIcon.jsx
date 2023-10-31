@@ -33,5 +33,5 @@ export default function UserIcon({ name }) {
 }
 
 UserIcon.propTypes = {
-  name: PropTypes.number,
+  name: PropTypes.string,
 };

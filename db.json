@@ -52,5 +52,73 @@
       "name": "Closed",
       "id": 3
     }
+  ],
+  "titles": [
+    {
+      "id": 1,
+      "company": "Sindion",
+      "from": "Graphic Designer",
+      "to": "front-End Developer",
+      "type": "Internal  ",
+      "date": "27 Jon 2023",
+      "status": "Solved",
+      "color": "#5FD971",
+      "bg": "#dae4dc"
+    },
+    {
+      "id": 2,
+      "company": "Company 2",
+      "from": "front-End Developer",
+      "to": "Graphic Designer",
+      "type": "External   ",
+      "date": "27 Jon 2023",
+      "status": "Pendding",
+      "color": "#5FD971",
+      "bg": "#dae4dc"
+    },
+    {
+      "id": 3,
+      "company": "Company 2",
+      "from": "Graphic Designer",
+      "to": "front-End Developer",
+      "type": "Internal  ",
+      "date": "27 Jon 2023",
+      "status": "Solved",
+      "color": "#5FD971",
+      "bg": "#dae4dc"
+    },
+    {
+      "id": 4,
+      "company": "Company 4",
+      "from": "front-End Developer",
+      "to": "Graphic Designer",
+      "type": "External   ",
+      "date": "27 Jon 2023",
+      "status": "Pendding",
+      "color": "#5FD971",
+      "bg": "#dae4dc"
+    },
+    {
+      "id": 5,
+      "company": "Company 5",
+      "from": "Graphic Designer",
+      "to": "front-End Developer",
+      "type": "Internal  ",
+      "date": "27 Jon 2023",
+      "status": "Solved",
+      "color": "#5FD971",
+      "bg": "#dae4dc"
+    },
+    {
+      "id": 6,
+      "company": "Company 6",
+      "from": "front-End Developer",
+      "to": "Graphic Designer",
+      "type": "External   ",
+      "date": "27 Jon 2023",
+      "status": "Pendding",
+      "color": "#5FD971",
+      "bg": "#dae4dc"
+    }
   ]
 }

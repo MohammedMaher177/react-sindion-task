@@ -19,11 +19,11 @@ export default function Solved() {
     <>
       <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
         
-        {titles.map((title, i) => (
+        {titles?.map((title, i) => (
           <TypographyComp title={title} key={i} />
         ))}
       </Box>
-      <CustomizedTables />
+      {/* <CustomizedTables /> */}
       <Pagination count={10} variant="outlined" color="secondary" />
     </>
   );

@@ -1,9 +1,11 @@
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import TabPanel from "../TabPanel/TabPanel.jsx";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+// import TabPanel from "../TabPanel/TabPanel.jsx";
+// import { useState } from "react";
+// import { useSelector } from "react-redux";
+import { tickets } from "../../Data/DummyData.jsx";
+import PropTypes from "prop-types";
 
 function a11yProps(index) {
   return {
@@ -12,16 +14,16 @@ function a11yProps(index) {
   };
 }
 
-export default function TicketTabs() {
-    const [value, setValue] = useState(0);
+export default function TicketTabs({value, setValue}) {
+  // const [value, setValue] = useState(0);
 
-    const handleChange = (event, newValue) => {
-      setValue(newValue);
-    };
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   const backgroundColor = (index) =>
     value == index ? "rgba(27 103 146 / 20%)" : "";
-  const { tickets } = useSelector(({ ticket }) => ticket);
+  // const { tickets } = useSelector(({ ticket }) => ticket);
   return (
     <>
       <Box
@@ -29,8 +31,9 @@ export default function TicketTabs() {
           flexGrow: 1,
           bgcolor: "background.paper",
           display: "flex",
-          height: "100%",
+          maxHeight: "80%",
           width: "100%",
+          overflow: "auto",
         }}
       >
         <Tabs
@@ -42,9 +45,10 @@ export default function TicketTabs() {
           sx={{
             borderRight: 1,
             borderColor: "divider",
-            minHeight: "100%",
-            minWidth: "350px",
-            marginRight: 4,
+            height: "100%",
+            minWidth: "200px",
+            maxWidth:"100%",
+            // marginRight: 4,
           }}
         >
           {tickets?.map((ticket) => (
@@ -60,14 +64,20 @@ export default function TicketTabs() {
             />
           ))}
         </Tabs>
-        <Box sx={{ width: "100%" }}>
+        {/* <Box sx={{ width: "100%" }}>
           {tickets.map((ticket) => (
             <TabPanel value={value} index={ticket.index} key={ticket.index}>
               {ticket.children}
             </TabPanel>
           ))}
-        </Box>
+        </Box> */}
       </Box>
     </>
   );
 }
+
+
+TicketTabs.propTypes = {
+  value: PropTypes.number,
+  setValue: PropTypes.func,
+};

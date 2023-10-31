@@ -13,19 +13,19 @@ export const tickets = [
   },
   {
     children: <TicketDetailsComp status={"status2"} user_name="Mohammed 2" />,
-    label: <TicketCard user_name="Mohammed 1" />,
+    label: <TicketCard user_name="Mohammed 2" />,
     index: 1,
     value: 0,
   },
   {
     children: <TicketDetailsComp status={"status3"} user_name="Mohammed 3" />,
-    label: <TicketCard user_name="Mohammed 1" />,
+    label: <TicketCard user_name="Mohammed 3" />,
     index: 2,
     value: 0,
   },
   {
     children: <TicketDetailsComp status={"status4"} user_name="Mohammed 4" />,
-    label: <TicketCard user_name="Mohammed 1" />,
+    label: <TicketCard user_name="Mohammed 4" />,
     index: 3,
     value: 0,
   },

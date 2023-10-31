@@ -1,7 +1,7 @@
 export const apiEndpoints = {
   tickets: {
     all: "/tickets",
-    byId: (ticket) => `/orders/${ticket}`,
+    byId: (ticket) => `/tickets/${ticket}`,
   },
   status: {
     all: "/status",
@@ -9,6 +9,10 @@ export const apiEndpoints = {
   },
   departments: {
     all: "/departments",
-    byId: (department) => `/products/${department}`,
+    byId: (department) => `/departments/${department}`,
+  },
+  titles: {
+    all: "/titles",
+    byId: (department) => `/titles/${department}`,
   },
 };
