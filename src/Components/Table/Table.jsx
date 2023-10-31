@@ -20,6 +20,7 @@ export default function CustomizedTables() {
   };
   useEffect(() => {
     getAllTitles();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>

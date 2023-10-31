@@ -9,23 +9,19 @@ import { Box } from "@mui/material";
 // import NoData from "../../Components/NoData/NoData.jsx";
 import CustomizedTables from "../../Components/Table/Table.jsx";
 import { useEffect } from "react";
-import { openSideBar } from "../../Redux/Slices/AppSlice/appSlice.js";
 import { Main } from "../../Theme/ThemeProvider.js";
 import { getTickets } from "../../Redux/Slices/TicketsSlice/TicketsSlice.js";
 
 export default function Home() {
   const dispatch = useDispatch();
-  // eslint-disable-next-line no-unused-vars
-  const openS = () => {
-    dispatch(openSideBar());
-  };
+
   const { sideBarCollapsed } = useSelector(({ app }) => app);
   const getAllTickets = () => {
     dispatch(getTickets());
   };
   useEffect(() => {
     getAllTickets();
-    // openS();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
