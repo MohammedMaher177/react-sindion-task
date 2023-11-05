@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <>
       <Main open={sideBarCollapsed}>
-        <div className="container mx-2">
+        <div className="container-fluid mx-2">
           <div className="row my-2 d-flex">
             <Box
               sx={{ minWidth: "350px", maxWidth: "450px" }}
